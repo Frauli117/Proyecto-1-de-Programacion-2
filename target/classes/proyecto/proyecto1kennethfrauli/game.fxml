@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.proyecto1kennethfrauli.GameController">
+
+    <Label text="Coloca tus barcos" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    
+    <HBox alignment="CENTER" spacing="20">
+        <VBox>
+            <Label text="Tu tablero"/>
+            <GridPane fx:id="playerBoard" gridLinesVisible="true" style="-fx-border-color: black; -fx-border-width: 2px;"/>
+        </VBox>
+
+        <VBox>
+            <Label text="Barcos disponibles"/>
+            <ListView fx:id="shipList"/>
+        </VBox>
+    </HBox>
+    <Button fx:id="backButton" text="Volver" onAction="#switchToDifficulties"/>
+
+</VBox>

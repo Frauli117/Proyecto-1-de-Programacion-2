@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="497.0" prefWidth="448.0" spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.proyecto1kennethfrauli.AboutController">
+    
+    <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Acerca de" />
+    <Label text="Desarrollado por: Mc Kenneth Frauli Arce" />
+    <Label text="Curso: Programacion II" />
+    <Label text="Ciclo y Año: Primer Ciclo de 2025" />
+
+    <Button fx:id="backButton" onAction="#switchToPrimary" text="Volver" />
+</VBox>
+
