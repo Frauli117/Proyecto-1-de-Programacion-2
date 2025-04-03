@@ -21,10 +21,14 @@ public class DifficultiesController {
     /**
      * Initializes the controller class.
      */
-    @FXML private Button easyButton;
-    @FXML private Button mediumButton;
-    @FXML private Button hardButton;
-    @FXML private Button backButton;
+    @FXML 
+    private Button easyButton;
+    @FXML 
+    private Button mediumButton;
+    @FXML 
+    private Button hardButton;
+    @FXML 
+    private Button backButton;
 
     @FXML
     private void setEasy() throws IOException {

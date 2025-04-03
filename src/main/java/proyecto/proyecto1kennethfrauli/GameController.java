@@ -12,8 +12,11 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
@@ -33,13 +36,23 @@ public class GameController {
     private static int boardSize = 10;
     private static final int[][] playerMatrix = new int[12][12];
     private List<int[]> placedShips = new ArrayList<>();
-
+    @FXML
+    private Label messageLabel;
+    @FXML
+    private Button backButton;
+    @FXML
+    private RadioButton horizontalRadio;
+    @FXML
+    private RadioButton verticalRadio;
+    @FXML
+    private ToggleGroup directionGroup;
+    
     @FXML
     private void initialize() {
         generateBoard();
         loadShips();
     }
-
+    
     public static void setBoardSize(int size) {
         boardSize = size;
     }
@@ -71,18 +84,20 @@ public class GameController {
     private void placeShip(MouseEvent event, int row, int col) {
         String selectedShip = shipList.getSelectionModel().getSelectedItem();
         if (selectedShip == null) {
-            System.out.println("Selecciona un barco antes de colocarlo.");
+            messageLabel.setText("Selecciona un barco antes de colocarlo.");
             return;
         }
 
         int shipSize = getShipSize(selectedShip);
         if (!canPlaceShip(row, col, shipSize)) {
-            System.out.println("Posicion invalida, intenta otra casilla.");
+            messageLabel.setText("Posicion invalida, intenta otra casilla.");
             return;
         }
 
         placeShipOnBoard(row, col, shipSize);
         shipList.getItems().remove(selectedShip);
+        
+        messageLabel.setText("");
     }
 
     private int getShipSize(String shipName) {
@@ -93,21 +108,38 @@ public class GameController {
     }
 
     private boolean canPlaceShip(int row, int col, int size) {
-        if (col + size > boardSize) return false;
-        for (int i = 0; i < size; i++) {
-            if (playerMatrix[row][col + i] == 1) return false;
+        boolean horizontal = horizontalRadio.isSelected();
+
+        if (horizontal) {
+            if (col + size > boardSize) return false;
+            for (int i = 0; i < size; i++) {
+                if (playerMatrix[row][col + i] == 1) return false;
+            }
+        } else {
+            if (row + size > boardSize) return false;
+            for (int i = 0; i < size; i++) {
+                if (playerMatrix[row + i][col] == 1) return false;
+            }
         }
+
         return true;
     }
 
     private void placeShipOnBoard(int row, int col, int size) {
+        boolean horizontal = horizontalRadio.isSelected();
+
         for (int i = 0; i < size; i++) {
-            playerMatrix[row][col + i] = 1;
-            Button cell = getCellAt(row, col + i);
+            int r = horizontal ? row : row + i;
+            int c = horizontal ? col + i : col;
+
+            playerMatrix[r][c] = 1;
+
+            Button cell = getCellAt(r, c);
             if (cell != null) {
                 cell.setStyle("-fx-background-color: gray;");
             }
         }
+
         placedShips.add(new int[]{row, col, size});
     }
 

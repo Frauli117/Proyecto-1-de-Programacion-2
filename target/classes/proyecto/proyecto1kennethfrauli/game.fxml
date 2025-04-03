@@ -1,26 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.proyecto1kennethfrauli.GameController">
+<VBox alignment="CENTER" prefHeight="695.0" prefWidth="615.0" spacing="10" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.proyecto1kennethfrauli.GameController">
 
-    <Label text="Coloca tus barcos" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Coloca tus barcos" />
     
     <HBox alignment="CENTER" spacing="20">
         <VBox>
-            <Label text="Tu tablero"/>
-            <GridPane fx:id="playerBoard" gridLinesVisible="true" style="-fx-border-color: black; -fx-border-width: 2px;"/>
+            <Label text="Tu tablero" />
+            <GridPane fx:id="playerBoard" gridLinesVisible="true" style="-fx-border-color: black; -fx-border-width: 2px;" />
         </VBox>
 
         <VBox>
-            <Label text="Barcos disponibles"/>
-            <ListView fx:id="shipList"/>
+            <Label text="Barcos disponibles" />
+            <ListView fx:id="shipList" />
         </VBox>
     </HBox>
-    <Button fx:id="backButton" text="Volver" onAction="#switchToDifficulties"/>
+   <Label text="Direccion de los barcos">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font></Label>
+   <RadioButton fx:id="horizontalRadio" mnemonicParsing="false" selected="true" text="Horizontal">
+      <toggleGroup>
+         <ToggleGroup fx:id="directionGroup" />
+      </toggleGroup></RadioButton>
+   <RadioButton fx:id="verticalRadio" mnemonicParsing="false" prefHeight="17.0" prefWidth="73.0" text="Vertical" toggleGroup="$directionGroup" />
+    <Button fx:id="backButton" onAction="#switchToDifficulties" text="Volver" />
+   <Label fx:id="messageLabel" prefHeight="17.0" prefWidth="268.0" textFill="#fc0303" />
 
 </VBox>
