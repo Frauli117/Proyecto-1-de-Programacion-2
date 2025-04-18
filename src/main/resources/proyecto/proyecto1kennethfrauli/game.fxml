@@ -36,5 +36,6 @@
    <RadioButton fx:id="verticalRadio" mnemonicParsing="false" prefHeight="17.0" prefWidth="73.0" text="Vertical" toggleGroup="$directionGroup" />
     <Button fx:id="backButton" onAction="#switchToDifficulties" text="Volver" />
    <Label fx:id="messageLabel" prefHeight="17.0" prefWidth="268.0" textFill="#fc0303" />
+   <Button fx:id="playButton" mnemonicParsing="false" onAction="#switchToPlay" text="Jugar" />
 
 </VBox>

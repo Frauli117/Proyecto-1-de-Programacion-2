@@ -46,6 +46,8 @@ public class GameController {
     private RadioButton verticalRadio;
     @FXML
     private ToggleGroup directionGroup;
+    @FXML
+    private Button playButton;
     
     @FXML
     private void initialize() {
@@ -155,6 +157,11 @@ public class GameController {
     @FXML
     private void switchToDifficulties() throws IOException {
         App.setRoot("difficulties");
-    }  
+    }
+    
+    @FXML
+    private void switchToPlay() throws IOException {
+        App.setRoot("play");
+    } 
     
 }
