@@ -30,6 +30,7 @@ public class PrimaryController {
             messageLabel.setText("Por favor, ingrese su nombre antes de continuar.");
             nameField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
         } else {
+            App.playerName = playerName;
             messageLabel.setText("");
             nameField.setStyle("");
             System.out.println("Jugador: " + playerName);

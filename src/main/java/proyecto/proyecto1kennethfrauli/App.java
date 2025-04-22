@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 public class App extends Application {
 
     private static Stage primaryStage;
+    public static String playerName;
 
     @Override
     public void start(Stage stage) throws IOException {

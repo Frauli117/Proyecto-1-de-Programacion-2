@@ -18,9 +18,6 @@ import javafx.scene.control.Button;
  */
 public class DifficultiesController {
 
-    /**
-     * Initializes the controller class.
-     */
     @FXML 
     private Button easyButton;
     @FXML 

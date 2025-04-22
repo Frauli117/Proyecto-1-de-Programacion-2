@@ -18,9 +18,6 @@ import javafx.scene.control.Button;
  */
 public class AboutController {
 
-    /**
-     * Initializes the controller class.
-     */
     @FXML
     private Button backButton;
 
